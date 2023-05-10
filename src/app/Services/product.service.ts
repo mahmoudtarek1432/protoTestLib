@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { WebsocketRequestClient } from 'ngx-proto-websocket';
-import { ProductRequest } from '../Model/ProductRequest';
+import { TestRequest } from '../Dto/TestRequest';
+import { Observable } from 'rxjs';
+import { TestResponse } from '../Dto/TestResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class ProductService {
     
   }
   
-  getProduct(productRequest:ProductRequest){
+  getProduct(productRequest:TestRequest):Observable<TestResponse>{
     return this.protoClient.request(productRequest);
   }
 }
